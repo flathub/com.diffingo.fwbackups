@@ -1,7 +1,7 @@
 {
   "app-id": "com.diffingo.fwbackups",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "43",
+  "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "command": "fwbackups",
   "finish-args": [
@@ -35,7 +35,7 @@
         {
           "type": "git",
           "url": "https://github.com/stewartadam/fwbackups.git",
-          "tag": "v1.43.8-rc2"
+          "commit": "34d681289da7dc4a9fab77699e110dd980e03b40"
         }
       ]
     }
