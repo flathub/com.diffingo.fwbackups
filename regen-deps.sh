@@ -1,6 +1,9 @@
 #!/bin/sh
 
-wget --continue https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator.py
-python3 -m pip install -U --user uv requirements-parser
-uv export --frozen --no-dev --no-emit-workspace --format requirements.txt -o requirements.txt --project ../fwbackups
-python3 flatpak-pip-generator.py --pyproject-file=../fwbackups/pyproject.toml --runtime org.gnome.Platform//49
+python3 -m pip install -U --user uv
+uv export --frozen --no-dev --no-emit-workspace --format requirements.txt --no-hashes -o requirements.txt --project ../fwbackups
+
+# do not use flatpak-pip-generator; it cannot download binary wheels which is required for cryptograph
+# https://github.com/johannesjh/req2flatpak?tab=readme-ov-file#related-work
+python3 -m pip install -U --user git+https://github.com/johannesjh/req2flatpak
+req2flatpak --requirements-file requirements.txt --target-platforms 311-x86_64 311-aarch64 >python3-modules.json
