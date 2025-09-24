@@ -1,7 +1,7 @@
 {
   "app-id": "com.diffingo.fwbackups",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "45",
+  "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
   "command": "fwbackups",
   "finish-args": [
@@ -26,7 +26,7 @@
     "*.a"
   ],
   "modules": [
-    "python3-main.json",
+    "python3-modules.json",
     {
       "name": "fwbackups",
       "builddir": true,
@@ -35,7 +35,7 @@
         {
           "type": "git",
           "url": "https://github.com/stewartadam/fwbackups.git",
-          "commit": "34d681289da7dc4a9fab77699e110dd980e03b40"
+          "commit": "1cc0a3cfa6eec8e48d18bf811f7876ba189d7fa9"
         }
       ]
     }
