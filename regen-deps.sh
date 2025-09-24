@@ -1,8 +1,6 @@
 #!/bin/sh
 
-# req2flatpak requires poetry >= 1.2
-python3 -m pip install -U --user poetry
-poetry export -C ../fwbackups --without-hashes --without-urls -o requirements.txt
-
-pip3 install --user git+https://github.com/johannesjh/req2flatpak
-req2flatpak --requirements-file requirements.txt --target-platforms 310-x86_64 310-aarch64 >python3-main.json
+wget --continue https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/pip/flatpak-pip-generator.py
+python3 -m pip install -U --user uv requirements-parser
+uv export --frozen --no-dev --no-emit-workspace --format requirements.txt -o requirements.txt --project ../fwbackups
+python3 flatpak-pip-generator.py --pyproject-file=../fwbackups/pyproject.toml --runtime org.gnome.Platform//49
