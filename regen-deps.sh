@@ -1,9 +1,32 @@
 #!/bin/sh
+# Regenerate python3-modules.json from the fwbackups uv.lock.
+#
+# Requirements: uv, flatpak, and the SDK below installed
+# (flatpak install flathub org.gnome.Sdk//50).
+#
+# Usage: ./regen-deps.sh [path-to-fwbackups-checkout]   (default: ../fwbackups)
+set -eu
 
-python3 -m pip install -U --user uv
-uv export --frozen --no-dev --no-emit-workspace --format requirements.txt --no-hashes -o requirements.txt --project ../fwbackups
+FWBACKUPS_DIR=${1:-../fwbackups}
+RUNTIME=org.gnome.Sdk//50
+# Pinned flatpak-builder-tools commit; bump deliberately.
+FBT_COMMIT=9d86d336a39b9af38b86f114b6ce5820fe260f91
+PIP_GENERATOR="https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/${FBT_COMMIT}/pip/flatpak-pip-generator.py"
 
-# do not use flatpak-pip-generator; it cannot download binary wheels which is required for cryptograph
-# https://github.com/johannesjh/req2flatpak?tab=readme-ov-file#related-work
-python3 -m pip install -U git+https://github.com/johannesjh/req2flatpak
-req2flatpak --requirements-file requirements.txt --target-platforms 313-{x86_64,aarch64} -o python3-modules.json
+# requirements.txt is an intermediate file; uv.lock is the source of truth.
+REQS=$(mktemp)
+trap 'rm -f "$REQS"' EXIT
+
+# PyGObject and pycairo are provided by the GNOME runtime, so they are not bundled.
+uv export --frozen --no-dev --no-emit-project --no-hashes --no-header --no-annotate \
+    --no-emit-package pygobject --no-emit-package pycairo \
+    --format requirements.txt --project "$FWBACKUPS_DIR" \
+    | sed -e 's/ *;.*//' -e '/^\s*#/d' -e '/^\s*$/d' > "$REQS"
+
+# cryptography and bcrypt are Rust extensions, so use the PyPI wheels for them
+# (as most Flathub apps do). Everything else is built from source.
+uv run "$PIP_GENERATOR" \
+    --runtime="$RUNTIME" \
+    --requirements-file="$REQS" \
+    --prefer-wheels=cryptography,bcrypt \
+    --output=python3-modules

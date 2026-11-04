@@ -1,97 +1,203 @@
 {
-    "name": "python3-package-installation",
+    "name": "python3-modules",
     "buildsystem": "simple",
-    "build-commands": [
-        "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --no-build-isolation bcrypt cffi cryptography invoke paramiko pycairo pycparser pygobject pynacl"
-    ],
-    "sources": [
+    "build-commands": [],
+    "modules": [
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ac/31/79f11865f8078e192847d2cb526e3fa27c200933c982c5b2869720fa5fce/bcrypt-5.0.0-cp39-abi3-manylinux_2_34_aarch64.whl",
-            "sha256": "edfcdcedd0d0f05850c52ba3127b1fce70b9f89e0fe5ff16517df7e81fa3cbb8",
-            "only-arches": [
-                "aarch64"
+            "name": "python3-bcrypt",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"bcrypt==5.0.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/3b/71/427945e6ead72ccffe77894b2655b695ccf14ae1866cd977e185d606dd2f/bcrypt-5.0.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+                    "sha256": "560ddb6ec730386e7b3b26b8b4c88197aaed924430e7b74666a586ac997249ef",
+                    "only-arches": [
+                        "x86_64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/45/b6/4c1205dde5e464ea3bd88e8742e19f899c16fa8916fb8510a851fae985b5/bcrypt-5.0.0-cp38-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+                    "sha256": "c2388ca94ffee269b6038d48747f4ce8df0ffbea43f31abfa18ac72f0218effb",
+                    "only-arches": [
+                        "aarch64"
+                    ]
+                }
             ]
         },
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/d4/8d/5e43d9584b3b3591a6f9b68f755a4da879a59712981ef5ad2a0ac1379f7a/bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl",
-            "sha256": "611f0a17aa4a25a69362dcc299fda5c8a3d4f160e2abb3831041feb77393a14a",
-            "only-arches": [
-                "x86_64"
+            "name": "python3-cffi",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"cffi==2.1.1\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz",
+                    "sha256": "dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+                    "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+                }
             ]
         },
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/37/6f/3b5ce4c3b2192d250f04908f2bfd91ef34552ec8f7716a5d4abdb8d67bb2/cffi-2.1.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
-            "sha256": "f16c709686a78c727bbbf059f92b0bf41c6fc60deec706d2dc19f529175a6125",
-            "only-arches": [
-                "aarch64"
+            "name": "python3-cryptography",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"cryptography==50.0.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz",
+                    "sha256": "dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/21/69/64cef1f702bf6657e0cc186ed1a2891d50d29fb41586b254e1c07adea261/cryptography-50.0.2-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+                    "sha256": "630ebfea3bf689d075f82316324ff7433dc447fe6bc1bfc76524b74b4a9567d2",
+                    "only-arches": [
+                        "x86_64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d9/69/c9bd862c3bf43d6399c433caf002df16e2dffd4be49bdf515cda38038711/cryptography-50.0.2-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+                    "sha256": "79def8d059362e7831389ed3be0ecdf58a89386e1271e35dd9f5af84e81bffd0",
+                    "only-arches": [
+                        "aarch64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+                    "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+                }
             ]
         },
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/95/95/86342356ff5953b3fb06f7ef7c5bee212d45e770abc7218d451b9148313c/cffi-2.1.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "a931079504ecc49efed7744c476a5c343a92fabf66dec2db95edb1b2fdc770e2",
-            "only-arches": [
-                "x86_64"
+            "name": "python3-invoke",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"invoke==3.0.3\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/5a/de/bbc12563bbf979618d17625a4e753ff7a078523e28d870d3626daa97261a/invoke-3.0.3-py3-none-any.whl",
+                    "sha256": "f11327165e5cbb89b2ad1d88d3292b5113332c43b8553b494da435d6ec6f5053"
+                }
             ]
         },
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/71/37/6202e488cc1eb625ea110c292c6bda92823176e023f427d8d5660ce8d632/cryptography-50.0.2-cp311-abi3-manylinux_2_34_aarch64.whl",
-            "sha256": "87e9ce85beb6b328ba370cc6e6aea483c92617b4c95b1d33a49297eb662bfb04",
-            "only-arches": [
-                "aarch64"
+            "name": "python3-paramiko",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"paramiko==5.1.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/3b/71/427945e6ead72ccffe77894b2655b695ccf14ae1866cd977e185d606dd2f/bcrypt-5.0.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+                    "sha256": "560ddb6ec730386e7b3b26b8b4c88197aaed924430e7b74666a586ac997249ef",
+                    "only-arches": [
+                        "x86_64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/45/b6/4c1205dde5e464ea3bd88e8742e19f899c16fa8916fb8510a851fae985b5/bcrypt-5.0.0-cp38-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+                    "sha256": "c2388ca94ffee269b6038d48747f4ce8df0ffbea43f31abfa18ac72f0218effb",
+                    "only-arches": [
+                        "aarch64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz",
+                    "sha256": "dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/21/69/64cef1f702bf6657e0cc186ed1a2891d50d29fb41586b254e1c07adea261/cryptography-50.0.2-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+                    "sha256": "630ebfea3bf689d075f82316324ff7433dc447fe6bc1bfc76524b74b4a9567d2",
+                    "only-arches": [
+                        "x86_64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d9/69/c9bd862c3bf43d6399c433caf002df16e2dffd4be49bdf515cda38038711/cryptography-50.0.2-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+                    "sha256": "79def8d059362e7831389ed3be0ecdf58a89386e1271e35dd9f5af84e81bffd0",
+                    "only-arches": [
+                        "aarch64"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/5a/de/bbc12563bbf979618d17625a4e753ff7a078523e28d870d3626daa97261a/invoke-3.0.3-py3-none-any.whl",
+                    "sha256": "f11327165e5cbb89b2ad1d88d3292b5113332c43b8553b494da435d6ec6f5053"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/13/45/fa0e8d70cb25d2dae06bc238e580a84834f6ca53a4e2408cccc19a78db7b/paramiko-5.1.0-py3-none-any.whl",
+                    "sha256": "d9fe6d67a9d0bbf3eb85b051d26ab850b678c02d060f32915b944e5ca6d0d9e1"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+                    "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d9/9a/4019b524b03a13438637b11538c82781a5eda427394380381af8f04f467a/pynacl-1.6.2.tar.gz",
+                    "sha256": "018494d6d696ae03c7e656e5e74cdfd8ea1326962cc401bcf018f1ed8436811c"
+                }
             ]
         },
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/d3/69/2c833a049475e0a3444e94c7d0aca0aa51d166374a449b09e92ac98138de/cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl",
-            "sha256": "9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079",
-            "only-arches": [
-                "x86_64"
+            "name": "python3-pycparser",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pycparser==3.12\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+                    "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+                }
             ]
         },
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/5a/de/bbc12563bbf979618d17625a4e753ff7a078523e28d870d3626daa97261a/invoke-3.0.3-py3-none-any.whl",
-            "sha256": "f11327165e5cbb89b2ad1d88d3292b5113332c43b8553b494da435d6ec6f5053"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/13/45/fa0e8d70cb25d2dae06bc238e580a84834f6ca53a4e2408cccc19a78db7b/paramiko-5.1.0-py3-none-any.whl",
-            "sha256": "d9fe6d67a9d0bbf3eb85b051d26ab850b678c02d060f32915b944e5ca6d0d9e1"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/bb/5e/19ab2572981a996ce96b853a189d2dcced40506b67d9555a7568457abcf2/pycairo-1.29.2.tar.gz",
-            "sha256": "3e69fff74fe64f5ba2dfa31f67c6bdf26413342574047437d2ac520d35e9a489"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
-            "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/65/1e/d590f82e14db75945b03f6b63e0f19662e0340babd8f574fdb1bb5a015e2/pygobject-3.58.1.tar.gz",
-            "sha256": "4c80598ade17fbaa7798e01a25d0bf29ce109740786026a074c5c62bb3e79d23"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/c4/58/fc6e649762b029315325ace1a8c6be66125e42f67416d3dbd47b69563d61/pynacl-1.6.2-cp38-abi3-manylinux_2_34_aarch64.whl",
-            "sha256": "26bfcd00dcf2cf160f122186af731ae30ab120c18e8375684ec2670dccd28130",
-            "only-arches": [
-                "aarch64"
-            ]
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/c9/a8/b917096b1accc9acd878819a49d3d84875731a41eb665f6ebc826b1af99e/pynacl-1.6.2-cp38-abi3-manylinux_2_34_x86_64.whl",
-            "sha256": "c8a231e36ec2cab018c4ad4358c386e36eede0319a0c41fed24f840b1dac59f6",
-            "only-arches": [
-                "x86_64"
+            "name": "python3-pynacl",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pynacl==1.6.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz",
+                    "sha256": "dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl",
+                    "sha256": "a076f3f489b39b43ed13563a1dafe42447445bec2e294154ec5c57fcdda4c85e"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d9/9a/4019b524b03a13438637b11538c82781a5eda427394380381af8f04f467a/pynacl-1.6.2.tar.gz",
+                    "sha256": "018494d6d696ae03c7e656e5e74cdfd8ea1326962cc401bcf018f1ed8436811c"
+                }
             ]
         }
     ]
