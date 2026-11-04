@@ -2,13 +2,13 @@
 # Regenerate python3-modules.json from the fwbackups uv.lock.
 #
 # Requirements: uv, flatpak, and the SDK below installed
-# (flatpak install flathub org.gnome.Sdk//50).
+# (flatpak install flathub org.gnome.Sdk//51).
 #
 # Usage: ./regen-deps.sh [path-to-fwbackups-checkout]   (default: ../fwbackups)
 set -eu
 
 FWBACKUPS_DIR=${1:-../fwbackups}
-RUNTIME=org.gnome.Sdk//50
+RUNTIME=org.gnome.Sdk//51
 # Pinned flatpak-builder-tools commit; bump deliberately.
 FBT_COMMIT=9d86d336a39b9af38b86f114b6ce5820fe260f91
 PIP_GENERATOR="https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/${FBT_COMMIT}/pip/flatpak-pip-generator.py"
