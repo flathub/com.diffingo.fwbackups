@@ -34,7 +34,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/stewartadam/fwbackups.git",
-                    "commit": "127c89eba07864c703a59fac9177c4b33e3ef0e3",
+                    "tag": "v1.43.8",
+                    "commit": "8f089c8bb537616a7508383e78dc37359d0cd9d2",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v(\\d+\\.\\d+\\.\\d+)$"
